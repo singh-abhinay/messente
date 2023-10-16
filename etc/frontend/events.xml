@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_register_success">
+        <observer name="customer_register_success" instance="Abhinay\Messente\Observer\NewRegistration"/>
+    </event>
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="customer_order_success" instance="Abhinay\Messente\Observer\NewOrder"/>
+    </event>
+</config>

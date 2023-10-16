@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Abhinay_Messente::messente" title="Messente Integration"
+             translate="title" module="Abhinay_Messente"
+             parent="Abhinay_Core::Abhinay" sortOrder="10"
+             resource="Abhinay_Messente::messente"/>
+
+        <add id="Abhinay_Messente::config"
+             title="Configurations" module="Abhinay_Messente"
+             sortOrder="20" parent="Abhinay_Messente::messente"
+             action="adminhtml/system_config/edit/section/messentesms"
+             resource="Abhinay_Messente::config"/>
+    </menu>
+</config>

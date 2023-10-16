@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <messentesms>
+            <general>
+                <enable>1</enable>
+                <username>xx45-xx56-78</username>
+                <password>XXXXX</password>
+                <country_code>{"_1697448394466_466":{"code":"+1","country_id":"US"}}</country_code>
+            </general>
+            <registration>
+                <enable>1</enable>
+                <message>Hello {{name}}, you have registered succesfully as customer.</message>
+                <admin_msg>0</admin_msg>
+                <admin_number>91XX</admin_number>
+                <admin_message>A new customer has been registered succesfully on your website.</admin_message>
+            </registration>
+            <order>
+                <enable>1</enable>
+                <message>Hello {{name}} !, your order has been succesfully placed with order ID: {{order_id}} on our
+                    site.
+                </message>
+                <admin_msg>0</admin_msg>
+                <admin_number>91XX</admin_number>
+                <admin_message>A new order has been placed with order ID: {{order_id}}, Thanks for your purchase.
+                </admin_message>
+            </order>
+            <order_status>
+                <enable>1</enable>
+                <pending_message_customer>Hello {{name}}, your order with order ID: {{order_id}}, status change to
+                    {{order_status}}.
+                </pending_message_customer>
+                <processing_message_customer>Hello {{name}}, your order with order ID: {{order_id}}, status change to
+                    {{order_status}}.
+                </processing_message_customer>
+                <complete_message_customer>Hello {{name}}, your order with order ID: {{order_id}}, status change to
+                    {{order_status}}.
+                </complete_message_customer>
+                <closed_message_customer>Hello {{name}}, your order with order ID: {{order_id}}, status change to
+                    {{order_status}}.
+                </closed_message_customer>
+                <admin_msg>0</admin_msg>
+                <admin_number>91XX</admin_number>
+                <pending_message_admin>Order with ID: {{order_id}}, status change to {{order_status}}.
+                </pending_message_admin>
+                <processing_message_admin>Order with ID: {{order_id}}, status change to {{order_status}}.
+                </processing_message_admin>
+                <complete_message_admin>Order with ID: {{order_id}}, status change to {{order_status}}.
+                </complete_message_admin>
+                <closed_message_admin>Order with ID: {{order_id}}, status change to {{order_status}}.
+                </closed_message_admin>
+            </order_status>
+        </messentesms>
+    </default>
+</config>

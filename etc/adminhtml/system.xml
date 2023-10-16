@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="messentesms" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="label"
+                 sortOrder="150">
+            <label>Messente Sms Integration</label>
+            <tab>abhinaycore</tab>
+            <resource>Abhinay_Messente::sms</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="5">
+                <label>General Setting</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="username" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Username</label>
+                    <comment>Messente username.</comment>
+                </field>
+                <field id="password" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Password</label>
+                    <comment>Messente user password.</comment>
+                </field>
+                <field id="user_country_codes" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Allowed Country Code</label>
+                    <frontend_model>Abhinay\Messente\Block\Adminhtml\Customer\CountryCode</frontend_model>
+                    <backend_model>Abhinay\Messente\Model\Config\Source\CountryCode</backend_model>
+                </field>
+                <field id="dynamic_fields" translate="label" type="label" sortOrder="50" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Dynamic Messages Text</label>
+                    <comment>name, email, firstname, middlename, lastname, postal, order_status, order_id, otp</comment>
+                </field>
+            </group>
+            <group id="registration" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                   showInStore="0">
+                <label>Customer Registration Message(s)</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Customer Alert</label>
+                    <comment>Customer registration message.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="message" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Registration Message</label>
+                    <validate>validate-length minimum-length-1 maximum-length-150 required-entry</validate>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="admin_msg" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Admin Alert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Message to admin on customer registration.</comment>
+                </field>
+                <field id="admin_number" translate="label" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Admin Number</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                    <comment>Admin number with country code (Ex. +1 91XXX).</comment>
+                </field>
+                <field id="admin_message" translate="label" type="textarea" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Admin Registration Message</label>
+                    <validate>required-entry validate-length minimum-length-1 maximum-length-150</validate>
+                    <comment>Admin message for new customer registration.</comment>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="order" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                   showInStore="0">
+                <label>New Order Message(s)</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Customer Alert</label>
+                    <comment>Customer new order place message.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="message" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Customer Order Message</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Customer new order message.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="admin_msg" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Admin Alert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>New Order message to admin.</comment>
+                </field>
+                <field id="admin_number" translate="label" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Admin Number</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                    <comment>Mobile number with country code (Ex. +1 91XXX).</comment>
+                </field>
+                <field id="admin_message" translate="label" type="textarea" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Admin Order Message</label>
+                    <validate>validate-length minimum-length-1 maximum-length-150 required-entry</validate>
+                    <comment>Admin new order message.</comment>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="order_status" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1"
+                   showInStore="0">
+                <label>Order Status Message(s)</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Customer Alert</label>
+                    <comment>Order status message for customer.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="pending_message_customer" translate="label" type="textarea" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Pending Order Status Message Customer</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Pending order status message for customer.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="processing_message_customer" translate="label" type="textarea" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Processing Order Status Message Customer</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Processing order status message for customer.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="complete_message_customer" translate="label" type="textarea" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Complete Order Status Message Customer</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Complete order status message for customer.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="closed_message_customer" translate="label" type="textarea" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Closed Order Status Message Customer</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Closed order status message for customer.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="admin_msg" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Admin Alert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Order status message(s) for admin.</comment>
+                </field>
+                <field id="admin_number" translate="label" type="text" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Admin Mobile Number</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                    <comment>Mobile number with country code (Ex. +1 91XXX).</comment>
+                </field>
+                <field id="pending_message_admin" translate="label" type="textarea" sortOrder="80" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Pending Order Status Message Admin</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Order status pending message for admin.</comment>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                </field>
+                <field id="processing_message_admin" translate="label" type="textarea" sortOrder="90" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Processing Order Status Message Admin</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Order status processing message for admin.</comment>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                </field>
+                <field id="complete_message_admin" translate="label" type="textarea" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Complete Order Status Message Admin</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Order status complete message for admin.</comment>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                </field>
+                <field id="closed_message_admin" translate="label" type="textarea" sortOrder="110" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Closed Order Status Message Admin</label>
+                    <validate>maximum-length-150 validate-length minimum-length-1 required-entry</validate>
+                    <comment>Order status closed message for admin.</comment>
+                    <depends>
+                        <field id="admin_msg">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
